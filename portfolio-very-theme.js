@@ -34,7 +34,7 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
       locales: ["ar", "es", "hi", "zh"],
     });
   }
-
+ 
   // Lit reactive properties
   static get properties() {
     return {
@@ -67,7 +67,7 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
+  
   <slot></slot>
 </div>`;
   }
