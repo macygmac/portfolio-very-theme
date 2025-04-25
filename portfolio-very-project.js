@@ -7,22 +7,24 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `portfolio-very-header`
+ * `portfolio-very-project`
  * 
  * @demo index.html
- * @element portfolio-very-header
+ * @element portfolio-very-project
  */
-export class PortfolioVeryHeader extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioVeryProject extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "portfolio-very-header";
+    return "portfolio-very-project";
   }
 
   constructor() {
     super();
     this.title = "";
-   
-   
+    this.description = "";
+    this.link = "";
+    this.link2 = "";
+    this.image = "";
   }
  
   // Lit reactive properties
@@ -30,7 +32,10 @@ export class PortfolioVeryHeader extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
-      
+      description: { type: String },
+      link: { type: String },
+      link2: { type: String },
+      image: { type: String },
     };
   }
 
@@ -51,29 +56,23 @@ export class PortfolioVeryHeader extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
+      a {
+          color: var(--ddd-theme-default-beaverBlue);
+          font-weight: bold;
+          text-decoration: none;
+      }
+      h3 {
+          margin-top: 0;
+      }
+      image {
+          width: 450px;
+          height: 450px;
+          border-radius: 50%;
+          border: 4px solid var(--ddd-theme-primary);
+      }
+      
 
-      your-banner a {
-  border: 2px solid blue;
-  padding: 10px;
-  display: inline-block;
-  margin: 10px;
-  background-color: var(--ddd-theme-default-slateGray);
-  color: var(--ddd-theme-primary);
-  text-decoration: none;
-}
 
-your-banner {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #00000066;
-  position: fixed;
-  top: 100px;
-  left: 0;
-  height: 100px;
-  right: 0;
-  z-index: 1;
-}
 
     `];
   }
@@ -81,19 +80,25 @@ your-banner {
   // Lit render the HTML
   render() {
     return html`
-
-  <your-banner>
-      <a href="#1">About</a>
-      <a href="#2">Resume</a>
-      <a href="#3">Projects</a>
-      <a href="#4">Professional Development</a>
-      <a href="#5">Contact</a>
-  </your-banner>
-    
-  
-  <slot></slot>
-`;
+      <h3>${this.title}</h3>
+      <p>${this.description}</p>
+      <ul>
+        ${this.link
+          ? html`<li>
+              <a href="${this.link}" target="_blank">View Project</a>
+            </li>`
+          : ""}
+        ${this.link2
+          ? html`<li>
+              <a href="${this.link2}" target="_blank">Access GitHub</a>
+            </li>`
+          : ""}
+      </ul>
+      <img src="${this.image}" />
+    `;
   }
+
+
 
   /**
    * haxProperties integration via file reference
@@ -104,4 +109,4 @@ your-banner {
   }
 }
 
-globalThis.customElements.define(PortfolioVeryHeader.tag, PortfolioVeryHeader);
+globalThis.customElements.define(PortfolioVeryProject.tag, PortfolioVeryProject);
