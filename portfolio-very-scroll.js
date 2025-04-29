@@ -6,7 +6,6 @@ import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
-import "@haxtheweb/scroll-button/scroll-button.js";
 
 
 
@@ -131,12 +130,7 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
-      .scroll-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-      }
+     
     `];
   }
 
@@ -146,7 +140,7 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
 <div class="wrapper">
   <h3><span>${this.t.title}:</span> ${this.title}</h3>
   <slot></slot>
-  <scroll-button></scroll-button>
+ 
 
   
 </div>`;
@@ -178,10 +172,7 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
   /**
    * haxProperties integration via file reference
    */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
-  }
+
 }
 
 globalThis.customElements.define(PortfolioVeryScroll.tag, PortfolioVeryScroll);

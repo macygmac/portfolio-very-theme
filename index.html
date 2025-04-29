@@ -8,29 +8,42 @@
   <meta name="Description" content="Demonstration for portfolio-very-theme">
 
   <style>
-    :root, html, body {
-      margin: 0;
-      padding: 0;
-    }
-    #demo {
-      height: 100%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      
-    }
-    .profile-pic {
-        width: 300px;
-        height: 450px;
-        border-radius: 100%;
-        border: 4px solid var(--ddd-theme-primary);
-      }
-      .resume-pic {
-        width: 500px;
-        height: 600px;
-        border: 4px solid var(--ddd-theme-primary);
-        
-      }
+     #demo {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-pic {
+    width: 500px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .resume-pic {
+    width: 625px;
+    height: auto;
+    border: 4px solid var(--ddd-theme-primary);
+  }
+
+  .about-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  height: 100vh; 
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+  .about-flex p {
+    max-width: 800px;
+    font-size: var(--ddd-font-size-m);
+  }
+
     portfolio-very-theme {
       margin: var(--ddd-spacing-2);
       border: var(--ddd-border-md);
@@ -47,7 +60,7 @@
 
 <body>
   <div id="demo">
-    <h1>Portfolio</h1>
+    
     <!-- this is going to do whatever the tag's defaults are -->
 
 
@@ -61,14 +74,16 @@
     <portfolio-very-theme data-accent="3" data-primary="5">
       
       
-      <portfolio-very-screen class= "About" id= "1" title="About">
-        
+      <portfolio-very-screen class="About" id="1" title="About">
+        <div class="about-flex">
           <img src="new business prof pic.jpg" alt="Macy McMullen" class="profile-pic">
-          <p>My name is Macy McMullen and I am a sophomore here at Penn State University. 
-           My major is Enterprise Technology Integration and I also plan to get my Smeal business certificate as well.
-           My current GPA as of Spring 2025 is 3.93. I am from Pittsburgh, PA. I love sports and hanging out with my friends. 
-           I am on track to end up graduating in 2027 and would love to pursue a career in data analytics.</p>
-        
+          <p>
+            My name is Macy McMullen and I am a sophomore here at Penn State University.  
+            My major is Enterprise Technology Integration and I also plan to get my Smeal business certificate as well.  
+            My current GPA as of Spring 2025 is 3.93. I am from Pittsburgh, PA. I love sports and hanging out with my friends.  
+            I am on track to end up graduating in 2027 and would love to pursue a career in data analytics.
+          </p>
+        </div>
       </portfolio-very-screen>
 
       <portfolio-very-screen class= "Resume" id= "2" title="Resume">

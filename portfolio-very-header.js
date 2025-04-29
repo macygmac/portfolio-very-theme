@@ -52,26 +52,27 @@ export class PortfolioVeryHeader extends DDDSuper(I18NMixin(LitElement)) {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
 
-      your-banner a {
+
+      .your-banner a {
   border: 2px solid blue;
-  padding: 10px;
+  padding: var(--ddd-spacing-3);
   display: inline-block;
-  margin: 10px;
+  margin: var(--ddd-spacing-3);
   background-color: var(--ddd-theme-default-slateGray);
   color: var(--ddd-theme-primary);
   text-decoration: none;
 }
 
-your-banner {
+.your-banner {
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #00000066;
   position: fixed;
-  top: 100px;
-  left: 0;
+  top: var(--ddd-spacing-25);
+  left: var(--ddd-spacing-0);
   height: 100px;
-  right: 0;
+  right: var(--ddd-spacing-0);
   z-index: 1;
 }
 
@@ -82,13 +83,13 @@ your-banner {
   render() {
     return html`
 
-  <your-banner>
+  <div class="your-banner">
       <a href="#1">About</a>
       <a href="#2">Resume</a>
       <a href="#3">Projects</a>
       <a href="#4">Professional Development</a>
       <a href="#5">Contact</a>
-  </your-banner>
+  </div>
     
   
   <slot></slot>
@@ -98,10 +99,7 @@ your-banner {
   /**
    * haxProperties integration via file reference
    */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
-  }
+
 }
 
 globalThis.customElements.define(PortfolioVeryHeader.tag, PortfolioVeryHeader);

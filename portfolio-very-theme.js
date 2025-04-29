@@ -53,7 +53,7 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
         
       }
       h3 span {
-        font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
+        font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-m));
       }
       scroll-button {
         position: fixed;
