@@ -62,10 +62,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
         margin: 0;
         padding: 0px 0px 75px;
       }
-      p { 
-        font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-m));
-        
-      }
+      
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-m));
         margin: 0;
@@ -91,22 +88,6 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
         background-color:  var(--ddd-theme-default-navy80);
         color: var(--ddd-theme-default-slateMaxLight);
       }
-       .about-flex {
-        display: flex;
-        align-items: center;
-        gap: 40px; 
-        flex-wrap: wrap; 
-      }
-
-      .profile-pic {
-        width: 200px;
-        height: auto;
-        border-radius: 50%;
-        object-fit: cover;
-      }
-
-
-
 
 
     `];

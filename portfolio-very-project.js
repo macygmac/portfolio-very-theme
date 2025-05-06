@@ -45,31 +45,57 @@ export class PortfolioVeryProject extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
-        color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        color: var(--ddd-theme-default-info);
+        background-color: var(--ddd-theme-default-linkLight);
         font-family: var(--ddd-font-navigation);
+        padding: var(--ddd-spacing-4);
+        margin: var(--ddd-spacing-2);
+        border-radius: var(--ddd-radius-lg);            
+        max-width: 1000px;
+        
+
+        
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
+      
       }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
       a {
           color: var(--ddd-theme-default-beaverBlue);
+          background-color: var(--ddd-theme-default-slateGray);
           font-weight: bold;
           text-decoration: none;
       }
       h3 {
           margin-top: 0;
       }
-      image {
-          width: 450px;
-          height: 450px;
-          border-radius: 50%;
+      img {
+          width: 500px;
+          height: 300px;
+          height: auto;
+          border-radius: var(--ddd-radius-sm);
           border: 4px solid var(--ddd-theme-primary);
-      }
+          object-fit: cover;
+        }
+        .project-content {
+          padding: var(--ddd-spacing-19);
+          display: flex;
+          gap: var(---ddd-spacing-4);
+          align-items: center;
+          justify-content: center;
+          box-shadow: var(--ddd-box-shadow-1);
+          border: 2px dotted var(--ddd-theme-default-beaverBlue);
+        }
+        .text-project-content {
+          flex: 1;
+        }
+        p {
+          margin: var(--ddd-spacing-4);
+        }
       
 
 
@@ -80,21 +106,27 @@ export class PortfolioVeryProject extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <h3>${this.title}</h3>
-      <p>${this.description}</p>
-      <ul>
-        ${this.link
-          ? html`<li>
-              <a href="${this.link}" target="_blank">View Project</a>
-            </li>`
-          : ""}
-        ${this.link2
-          ? html`<li>
-              <a href="${this.link2}" target="_blank">Access GitHub</a>
-            </li>`
-          : ""}
-      </ul>
-      <img src="${this.image}" />
+     <div class="project-content">
+        <img src="${this.image}" alt="Project Preview" />
+        <div class="text-project-content">
+          <h3>${this.title}</h3>
+          <p>${this.description}</p>
+          <ul>
+            ${this.link
+              ? html`<li>
+                  <a href="${this.link}" target="_blank"
+                    >View Project on Vercel</a
+                  >
+                </li>`
+              : ""}
+            ${this.link2
+              ? html`<li>
+                  <a href="${this.link2}" target="_blank">Access GitHub</a>
+                </li>`
+              : ""}
+          </ul>
+        </div>
+      </div>
     `;
   }
 

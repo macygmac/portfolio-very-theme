@@ -45,6 +45,7 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
+        width: 100%;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -61,6 +62,36 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
         right: 20px;
         z-index: 1000;
       }
+
+      
+    @media (max-width: 768px) {
+      .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          }
+      }
+      @media (max-width: 425px) {
+        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
+          display: flex;
+          flex-direction: column;
+          }
+      }
+      @media (max-width: 375px) {
+        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
+          display: flex;
+          flex-direction: column;
+          }
+      }
+      @media (max-width: 320px) {
+        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
+          display: flex;
+          flex-direction: column;
+          }
+      }
+
+  
+
     `];
   }
 
@@ -71,9 +102,6 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
   <portfolio-very-header></portfolio-very-header>
   <scroll-button></scroll-button>
   <portfolio-very>
-      <ul>
-        ${this.pages.map((page, index) => html`<li><a href="#${page.number}" @click="${this.linkChange}" data-index="${index}">${page.title}</a></li>`)}
-      </ul>
     </portfolio-very>
     <div class="wrapper" @page-added="${this.addPage}">
   <slot></slot>
