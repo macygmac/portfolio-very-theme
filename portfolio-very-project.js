@@ -67,11 +67,11 @@ export class PortfolioVeryProject extends DDDSuper(I18NMixin(LitElement)) {
       a {
           color: var(--ddd-theme-default-beaverBlue);
           background-color: var(--ddd-theme-default-slateGray);
-          font-weight: bold;
+          font-weight: var(--ddd-font-weight-bold);
           text-decoration: none;
       }
       h3 {
-          margin-top: 0;
+          margin-top: var(--ddd-spacing-0);
       }
       img {
           width: 500px;
