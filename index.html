@@ -9,74 +9,80 @@
 
   <style>
      #demo {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
-  .profile-pic {
-    width: 400px;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-  }
+.profile-pic {
+  width: 400px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
+.resume-pic {
+  width: 450px;
+  max-width: 95%;
+  height: auto;
+  border: 4px solid var(--ddd-theme-primary);
+}
 
-
-  .resume-pic {
-    width: 450px;
-    height: auto;
-    border: 4px solid var(--ddd-theme-primary);
-  }
-
-  .about-flex {
+.about-flex,
+.contact-content,
+.involvement-content {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
   flex-wrap: wrap;
-  height: 100vh; 
   padding: 40px;
   box-sizing: border-box;
+  height: auto; /* 🚨 FIX: never use 100vh */
 }
 
-  .about-flex p {
-    max-width: 800px;
-    font-size: var(--ddd-font-size-m);
-  }
+.about-flex p,
+.contact-content p,
+.involvement-content p {
+  max-width: 800px;
+  font-size: var(--ddd-font-size-m);
+}
 
-  .contact-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    height: 100vh; 
-    padding: 40px;
-    
-  }
-  .contact-content p {
-    max-width: 800px;
-    font-size: var(--ddd-font-size-m);
-    color: var(--ddd-theme-default-linkLight);
-  }
-  .contact-content img {
-    width: 500px;
-    height: auto;
-    border-radius: 25%;
-    object-fit: cover;
-  }
-  .involvement-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    flex-wrap: wrap;
-    padding: 10px;
-    
-  }
-  .involvement-content p {
+.contact-content img,
+.involvement-content img {
+  width: 500px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 25%;
+  object-fit: cover;
+}
+
+.involvement-content img {
+  width: 250px;
+}
+
+portfolio-very-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 90%;
+}
+
+portfolio-very-theme {
+  margin: var(--ddd-spacing-2);
+  border: var(--ddd-border-md);
+  border-radius: var(--ddd-radius-lg);
+}
+
+portfolio-very-theme:hover {
+  box-shadow: var(--ddd-boxShadow-sm);
+}
+
+.involvement-content p {
     max-width: 400px;
     font-size: var(--ddd-font-size-s);
     color: var(--ddd-theme-default-linkLight);
@@ -88,51 +94,72 @@
     object-fit: cover;
   }
 
-  portfolio-very-project {
-  justify-content: center;
-  align-items: center;
-  margin-left: 350px;
-  margin-right: 350px;
-  margin-top: 100px;
+@media (max-width: 1500px) {
+  .profile-pic,
+  .resume-pic,
+  .contact-content img,
+  .involvement-content img {
+    width: 300px;
   }
 
-    portfolio-very-theme {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    portfolio-very-theme:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
+  .about-flex,
+  .contact-content,
+  .involvement-content {
+    gap: 20px;
+    padding: 20px;
+  }
 
+  /* TEXT resize */
+  .about-flex p,
+  .contact-content p,
+  .involvement-content p {
+    font-size: var(--ddd-font-size-s);
+  }
+}
 
-    @media (max-width: 768px) {
-      .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
-      @media (max-width: 425px) {
-        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
-      @media (max-width: 375px) {
-        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
-      @media (max-width: 320px) {
-        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
+@media (max-width: 768px) {
+  .profile-pic,
+  .resume-pic,
+  .contact-content img,
+  .involvement-content img {
+    width: 250px;
+  }
 
+  .about-flex,
+  .contact-content,
+  .involvement-content {
+    gap: 15px;
+    padding: 15px;
+  }
 
-    
+  .about-flex p,
+  .contact-content p,
+  .involvement-content p {
+    font-size: var(--ddd-font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-pic,
+  .resume-pic,
+  .contact-content img,
+  .involvement-content img {
+    width: 200px;
+  }
+
+  .about-flex,
+  .contact-content,
+  .involvement-content {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .about-flex p,
+  .contact-content p,
+  .involvement-content p {
+    font-size: var(--ddd-font-size-xs);
+  }
+}
    
   </style>
   <title>portfolio-very-theme</title>

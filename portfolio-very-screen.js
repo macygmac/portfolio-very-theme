@@ -90,6 +90,36 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       }
 
 
+      @media (max-width: 1024px) {
+        .wrapper {
+          height: auto;
+          padding: var(--ddd-spacing-2);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .wrapper {
+          height: auto;
+          padding: var(--ddd-spacing-1);
+        }
+        h3 {
+          font-size: var(--ddd-font-size-l);
+          padding-bottom: 50px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .wrapper {
+          height: auto;
+          padding: var(--ddd-spacing-1);
+        }
+        h3 {
+          font-size: var(--ddd-font-size-m);
+          padding-bottom: 30px;
+        }
+      }
+
+
     `];
   }
 

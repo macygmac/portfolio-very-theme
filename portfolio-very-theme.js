@@ -63,34 +63,40 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
         z-index: 1000;
       }
 
-      
-    @media (max-width: 768px) {
-      .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          width: 100%;
-          }
-      }
-      @media (max-width: 425px) {
-        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
-      @media (max-width: 375px) {
-        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
-      @media (max-width: 320px) {
-        .profile-pic, .resume-pic, .involvement-content img, .involvement-content p, .contact-content img, .contact-content p {
-          display: flex;
-          flex-direction: column;
-          }
-      }
 
-  
+      @media (max-width: 768px) {
+  .about-flex, .contact-content, .involvement-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-pic, .resume-pic {
+    width: 80%;
+    max-width: 300px;
+  }
+
+  .involvement-content img, .contact-content img {
+    width: 80%;
+    max-width: 200px;
+  }
+
+  .about-flex p, .involvement-content p, .contact-content p {
+    font-size: var(--ddd-font-size-s);
+    text-align: center;
+  }
+}
+
+@media (max-width: 425px) {
+  .profile-pic, .resume-pic, .involvement-content img, .contact-content img {
+    width: 90%;
+    max-width: 180px;
+  }
+
+  .about-flex p, .involvement-content p, .contact-content p {
+    font-size: var(--ddd-font-size-xs);
+  }
+}
+
 
     `];
   }
